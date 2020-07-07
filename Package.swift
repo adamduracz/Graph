@@ -1,3 +1,5 @@
+// swift-tools-version:5.2
+
 /*
  * The MIT License (MIT)
  *
@@ -23,8 +25,23 @@
  * THE SOFTWARE.
  */
 
-// swift-tools-version:3.1
-
 import PackageDescription
 
-let package = Package(name: "Graph")
+let package = Package(
+    name: "Graph",
+    products: [
+        .library(
+            name: "Graph",
+            targets: ["Graph"]),
+    ],
+    targets: [
+        .target(
+            name: "Graph",
+            dependencies: [],
+            path: "Sources"),
+        .testTarget(
+            name: "Tests",
+            dependencies: ["Graph"],
+            path: "Tests"),
+    ]
+)
